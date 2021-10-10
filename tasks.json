@@ -1,0 +1,15 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "gulpDeploy",
+            "command": "gulp",
+            "args": ["deploy:dev"],
+            "type": "shell",
+             "options": {
+                "cwd": "${workspaceRoot}"
+            },
+            "problemMatcher": []
+        }
+    ]
+}
