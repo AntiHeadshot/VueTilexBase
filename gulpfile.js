@@ -19,7 +19,7 @@ const _filenames = require('gulp-filenames');
 const _path = require("path");
 const _extReplace = require("gulp-ext-replace");
 
-const publishpath = "G:/xampp/htdocs/inkment/web";
+const publishpath = "D:/Program Files/xampp/htdocs/inkment/web";
 
 const usedLibs = ["vue-router/dist/*.js", "vue/dist/*.js"];
 
@@ -212,4 +212,5 @@ _gulp.task("build", _gulp.series("debug:off", "build:dev"));
 
 _gulp.task("deploy", _gulp.series("build", "publish"));
 
+_gulp.task("deploy:dev", _gulp.series("build:dev", "publish"));
 _gulp.task("deploy:dev", _gulp.series("build:dev", "publish"));

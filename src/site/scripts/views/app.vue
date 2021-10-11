@@ -15,16 +15,13 @@
         <router-link class="link" to="datenschutz">Datenschutz</router-link>
       </div>
     </div>
-    <navMenu v-if="shared.user != null">
+    <navMenu v-if="shared.isDebug">
       <ul>
         <li>
-          <router-link to="userSettings">Einstellungen</router-link>
-        </li>
-        <li v-if="shared.user.privilege >= 3">
-          <router-link to="users">Benutzer-Verwaltung</router-link>
+          <router-link to="home">Home</router-link>
         </li>
         <li>
-          <a v-on:click="logout">Logout</a>
+          <router-link to="view1">View1</router-link>
         </li>
       </ul>
       <template v-slot:header>
@@ -40,64 +37,10 @@
         </div>
       </template>
     </navMenu>
-    <navMenu v-else-if="shared.isDebug">
-      <ul>
-        <li>
-          <router-link to="login">login</router-link>
-        </li>
-        <li>
-          <router-link to="register">register</router-link>
-        </li>
-        <li>
-          <router-link to="userSettings">userSettings</router-link>
-        </li>
-        <li>
-          <router-link to="createAccess">createAccess</router-link>
-        </li>
-        <li>
-          <router-link to="displayAccess">displayAccess</router-link>
-        </li>
-        <li>
-          <router-link to="calendarDisplay">calendarDisplay</router-link>
-        </li>
-        <li>
-          <router-link to="calendarSelection">calendarSelection</router-link>
-        </li>
-        <li>
-          <router-link to="daySelection">daySelection</router-link>
-        </li>
-      </ul>
-      <template v-slot:header>
-        <div id="header">
-          <router-link to="/" id="headerImg">
-            <img src="/site/images/icon@2x.png" srcset="/site/images/icon@4x.png 2x" />
-          </router-link>
-          <div id="titleContainer">
-            <div id="title">
-              <h1 class="coloredText fixed">!#AppName#!</h1>
-            </div>
-          </div>
-        </div>
-      </template>
-    </navMenu>
-    <template v-else>
-      <div id="header">
-        <router-link to="/" id="headerImg">
-          <img src="/site/images/icon@2x.png" srcset="/site/images/icon@4x.png 2x" />
-        </router-link>
-        <div id="titleContainer">
-          <div id="title">
-            <h1 class="coloredText fixed">!#AppName#!</h1>
-          </div>
-        </div>
-      </div>
-    </template>
   </div>
 </template>
 <script>
 import shared from "../shared";
-import { Cookies } from "../services/cookies";
-import { LoginService } from "../services/loginService";
 
 export default {
   data: () => {
@@ -106,13 +49,6 @@ export default {
     };
   },
   methods: {
-    logout: async function () {
-      await LoginService.logout().then(() => {
-        shared.user = null;
-        this.$router.push("/");
-        Cookies.deleteAll();
-      });
-    },
   },
 };
 </script>
