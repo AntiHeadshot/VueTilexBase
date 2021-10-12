@@ -15,9 +15,18 @@ export abstract class ApiService {
         Cookies.set("Authorization", token);
     }
 
+    private static IsPathAbsolute(path: string): boolean {
+        return /^(?:\/|[a-z]+:\/\/)/.test(path);
+    }
+
     private static async Post(request: string, method: string, urlPayload?: any, payload?: any): Promise<Response> {
 
-        let uri = ApiService.path + request;
+        let uri;
+
+        let isExternal = this.IsPathAbsolute(request);
+
+        uri = isExternal ? request : ApiService.path + request;
+
         if (urlPayload) {
             uri += "?";
 
@@ -26,7 +35,7 @@ export abstract class ApiService {
 
             uri = uri.slice(0, uri.length - 1);
         }
-        return await fetch(uri, new BaseRequestInfo(method, payload, this.authorization));
+        return await fetch(uri, new BaseRequestInfo(method, payload, isExternal ? null : this.authorization));
     }
 
     public static async Fetch<T>(request: string, method: string, urlPayload?: any, payload?: any, onError?: (msg: ErrorMessage) => void): Promise<T> {

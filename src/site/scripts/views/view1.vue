@@ -1,8 +1,6 @@
 <template>
   <div>
-    <h3>Home</h3>
-    <br />
-    <a type="submit" name="submit" class="button" href="view1">View1</a>
+    <h3>Hello View1</h3>
   </div>
 </template>
 
