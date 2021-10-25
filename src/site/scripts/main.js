@@ -19,7 +19,8 @@ const routes = [
         }
     },
     { path: "/home", component: comps.home },
-    { path: "/view1", component: comps.view1 },
+    { path: "/materials", component: comps.materials },
+    { path: "/item", component: comps.item },
     { path: "/impressum", component: comps.impressum },
     { path: "/datenschutz", component: comps.datenschutz },
     { path: "*", component: comps.e404 }

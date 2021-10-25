@@ -21,7 +21,7 @@
           <router-link to="home">Home</router-link>
         </li>
         <li>
-          <router-link to="view1">View1</router-link>
+          <router-link to="materials">Materials</router-link>
         </li>
       </ul>
       <template v-slot:header>

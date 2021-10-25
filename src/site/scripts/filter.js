@@ -42,3 +42,9 @@ Vue.filter('dateTimeMonth', function(value) {
         return dateTimeMonthFormater.format(value);
     return value;
 });
+
+Vue.filter('json', function(value) {
+    if (value != null)
+        return JSON.stringify(value);
+    return value;
+});

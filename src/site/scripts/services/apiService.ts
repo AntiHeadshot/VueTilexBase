@@ -2,7 +2,6 @@ import { Cookies } from "./cookies";
 
 export abstract class ApiService {
 
-    private static path: string = "api/v1.0/";
     private static authorization: string;
 
     private static _initialize = (() => {
@@ -25,7 +24,7 @@ export abstract class ApiService {
 
         let isExternal = this.IsPathAbsolute(request);
 
-        uri = isExternal ? request : ApiService.path + request;
+        uri = request;
 
         if (urlPayload) {
             uri += "?";
@@ -56,7 +55,7 @@ export abstract class ApiService {
 }
 
 export class BaseRequestInfo implements RequestInit {
-    public static credentials: RequestCredentials = "same-origin";
+    //public static credentials: RequestCredentials = "same-origin";
     public method: string;
     public body: BodyInit;
     public headers: any;

@@ -35,12 +35,16 @@ import impressum from "./views/impressum.vue";
 collection.impressum = impressum;
 Vue.component("impressum", impressum);
 
+import item from "./views/item.vue";
+collection.item = item;
+Vue.component("item", item);
+
 import loading from "./views/loading.vue";
 collection.loading = loading;
 Vue.component("loading", loading);
 
-import view1 from "./views/view1.vue";
-collection.view1 = view1;
-Vue.component("view1", view1);
+import materials from "./views/materials.vue";
+collection.materials = materials;
+Vue.component("materials", materials);
 
 export default collection;

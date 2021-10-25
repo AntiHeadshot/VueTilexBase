@@ -7,8 +7,8 @@ let parameters = {
     "Version": "?v=0.2." + Math.floor((((new Date().getTime()) - (new Date().setHours(0, 0, 0, 0))) / 2000)),
     "ThemeColor": "#ffffff",
     "TileColor": "#ff0050",
-    "AppName": "TestApp1",
-    "AppTitle": "TestApp1 - Title"
+    "AppName": "GW2 Market",
+    "AppTitle": "GW2 Market 📈"
 };
 
 const FileHound = require('filehound');
