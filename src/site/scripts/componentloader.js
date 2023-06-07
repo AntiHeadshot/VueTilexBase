@@ -3,6 +3,10 @@ import checkbox from "./components/checkbox.vue";
 collection.checkbox = checkbox;
 Vue.component("checkbox", checkbox);
 
+import graph from "./components/graph.vue";
+collection.graph = graph;
+Vue.component("graph", graph);
+
 import message from "./components/message.vue";
 collection.message = message;
 Vue.component("message", message);

@@ -123,9 +123,19 @@ export class MaterialService {
 declare global {
     interface Array<T> {
         chunk(n: number): Array<Array<T>>;
+        min(): number;
+        max(): number;
     }
 }
 
 Array.prototype.chunk = function (n) {
     return Array.from(Array(Math.ceil(this.length / n)).keys()).map((x, i) => this.slice(i * n, i * n + n));
 }
+
+Array.prototype.max = function () {
+    return Math.max.apply(null, this);
+};
+
+Array.prototype.min = function () {
+    return Math.min.apply(null, this);
+};

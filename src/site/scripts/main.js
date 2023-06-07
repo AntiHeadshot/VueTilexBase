@@ -3,7 +3,7 @@ import comps from './componentloader';
 
 import shared from './shared';
 
-if (shared.isDebug)
+if (shared.isDebugConsole)
     require('./debug/debugConsole');
 
 require('./filter');
